@@ -1,0 +1,15 @@
+---
+ - name: Install post
+   hosts: node1
+   become: yes
+   tasks:
+   - name: Install postfix
+     apt:
+      name: postfix
+      state: present
+     tags: init postfix
+   - name: Drop postfix
+     apt:
+      name: postfix
+      state: absent
+     tags: drop postfix
